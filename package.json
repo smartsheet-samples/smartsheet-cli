@@ -4,8 +4,8 @@
   "description": "sscli, a CLI for workthing with Smartsheet",
   "main": "index.js",
   "bin": {
-    "sscli": "./bin/sscli",
-    "smartsheet-cli": "./bin/sscli"
+    "sscli": "./index.js",
+    "smartsheet-cli": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
