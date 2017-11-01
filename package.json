@@ -19,6 +19,7 @@
   "dependencies": {
     "commander": "^2.11.0",
     "fs-extra": "^4.0.2",
+    "http": "0.0.0",
     "smartsheet": "^1.0.1"
   }
 }
