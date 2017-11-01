@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var package = require('../package.json');
+var package = require('./package.json');
 var program = require('commander');
 var path = require('path');
-var lib = path.join(__dirname, '../lib');
+var lib = path.join(__dirname, './lib');
 
 program
     .version(package.version);
