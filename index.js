@@ -15,6 +15,11 @@ program
     .action(require(lib + '/auth'));
 
 program
+    .command('whoami')
+    .description('shows which smartsheet account you\'re connected to')
+    .action(require(lib + '/whoami'));
+    
+program
     .command('*')
     .action(function (argv) {
         console.log('\'sscli %s\' is not a valid command use \'sscli -h\' for help', argv);
