@@ -1,5 +1,5 @@
 # Smartsheet-CLI
-
+ 
 ### Create Token File
 Create `.smartsheet-cli` directory at ~
 
