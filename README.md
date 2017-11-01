@@ -1,5 +1,13 @@
 # Smartsheet-CLI
-Hackathon project for building a Smartsheet-CLI
 
-Let's see what we can come up with!
+### Create Token File
+Create `.smartsheet-cli` directory at ~
+
+Inside that directory create a file called `token.json`
+
+Inside `token.json` add the following:
+
+    {
+        "access_token": your_access_token
+    }
 
