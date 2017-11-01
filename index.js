@@ -4,7 +4,7 @@ const package = require('./package.json');
 const program = require('commander');
 const path = require('path');
 const lib = path.join(__dirname, './lib');
-
+// WARNING: If you use .action it will break all sub commands
 program
     .version(package.version);
 
