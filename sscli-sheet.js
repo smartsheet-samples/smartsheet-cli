@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+const sheet = require('./lib/sheet.js');
 var program = require('commander');
 
 program
@@ -7,10 +7,10 @@ program
 
 program
     .command('create')
+    .option('--sheet-name [name]', 'This is the name of your sheet')
     .action(function () {
-        console.log("\n\nCreating a sheet\n\n");
-        console.log('Available information:');
-        console.log(program.args);
+        const info = program.args[program.args.length-1];
+        sheet.createSheet(info.sheetName);
     });
 
 program
