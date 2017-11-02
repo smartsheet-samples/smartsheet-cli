@@ -12,7 +12,8 @@ program
     .command('sheet [subcommand]', 'Commands for working with sheets')
     .command('auth [subcommand]', 'Authorization')
     .command('user [subcommand]', 'User functions')
-    .command('attachments [subcommand]', 'Attachment-centric commands');
+    .command('attachments [subcommand]', 'Attachment-centric commands')
+    .command('discussions [subcommand]', 'Discussion-oriented commands');
 
 program
     .command('auth')
