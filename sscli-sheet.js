@@ -36,13 +36,6 @@ program
     });
 
 program
-    .command('export [sheet-id]')
-    .action(function () {
-        console.log('Available information:');
-        console.log(program.args);
-    });
-
-program
     .command('import')
     .action(function () {
         console.log('Available information:');
