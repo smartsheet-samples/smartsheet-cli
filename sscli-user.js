@@ -13,10 +13,10 @@ program
     .option('--email [email]', 'The user\'s email address.')
     .option('--admin', 'Make the user a system administrator.')
     .option('--licensed', 'Create this as a licensed account, with permission to create and own sheets.')
-    .option('--first-name', 'The user\'s first name.')
-    .option('--last-name', 'The user\'s last name.')
+    .option('--first-name [name]', 'The user\'s first name.')
+    .option('--last-name [name]', 'The user\'s last name.')
     .option('--group-admin', 'Give this user permission to create and edit groups')
-    .option('-resource-viewer', 'Let this user access resource views.')
+    .option('--resource-viewer', 'Let this user access resource views.')
     .action(function () {
         const info = program.args[program.args.length-1];
         if (!info.email) {
@@ -31,9 +31,9 @@ program
         let groupAdmin = !!info.groupAdmin;
         let resourceViewer = !!info.resourceViewer;
         user.add(email, isAdmin, licensed, firstName, lastName, groupAdmin, resourceViewer)
-            .then(values => {
-                console.log('Return value:');
-                console.log(values);
+            .then(data => {
+                console.log('User added:');
+                user.display(data.result);
             })
             .catch(error => console.log(error));
 
@@ -85,7 +85,7 @@ program
                     if (transferTo) {
                         message += ' and transfer ownership of their ';
                         message += (transferSheets ? 'sheets and groups' : 'groups');
-                        message += ' to ' + replacement.email;
+                        message += ' to ' + replacementUser.email;
                     }
                     message += '?';
 
@@ -97,9 +97,11 @@ program
                     };
                     inquirer.prompt([question]).then((answer) => {
                         if (answer.proceed) {
-                            user.delete(userId, transferTo, transferSheets, removeFromSharing).then(() => {
-                                console.log('User deleted.')
-                            }).catch(error => {reject(error)});
+                            user.delete(userId, transferTo, transferSheets, removeFromSharing)
+                                .then(() => {
+                                    console.log('User deleted.')
+                                    })
+                                .catch(error => {console.error(error)});
                         }
                         else {
                             console.error('Delete cancelled.');
@@ -145,31 +147,7 @@ program
             else {
                 for (let i = 0; i < results.data.length; i++) {
                     let record = results.data[i];
-                    let identifier = record.email;
-                    if (record.name) {
-                        identifier = record.name + ' (' + record.email + ')';
-                    }
-                    // The API only displays status and other metadata
-                    // if the requestor is an administrator.
-                    if (!record.status) {
-                        console.log(identifier);
-                        continue;
-                    }
-
-                    // For systems administrators, display more data.
-                    console.log(chalk.bold.yellow(identifier));
-                    if (record.admin) {
-                        console.log(chalk.bold('System Administrator'));
-                    }
-                    console.log('ID: %s', record.id);
-                    console.log('Status: %s', record.status);
-                    if (typeof record.sheetCount !== 'undefined') {
-                        console.log('Owns %s sheets', record.sheetCount);
-                    }
-                    console.log('Licensed: %s', (record.licensedSheetCreator ? 'Yes' : 'No'));
-                    console.log('Group admin: %s', (record.groupAdmin ? 'Yes' : 'No'));
-                    console.log('Resource viewer: %s', (record.resourceViewer ? 'Yes' : 'No'));
-                    console.log('');
+                    user.display(record);
                 }
 
                 console.log(chalk.bold('Page %s of %s'), results.pageNumber, results.totalPages);
