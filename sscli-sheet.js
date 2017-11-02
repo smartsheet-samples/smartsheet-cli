@@ -8,9 +8,12 @@ program
 program
     .command('get')
     .option('--sheet-id [id]', 'This is the name of your sheet')
+    .option('--csv', 'Get the sheet as a CSV file')
+    .option('--pdf', 'Get the sheet as a PDF file')
+    .option('--excel', 'Get the sheet as an Excel file')
     .action(function () {
         const info = program.args[program.args.length-1];
-        sheet.getSheet(info.sheetId);
+        sheet.getSheet(info.sheetId, info.csv, info.pdf, info.excel);
     });
 
 program
