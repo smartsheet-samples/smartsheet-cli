@@ -5,6 +5,7 @@ const program = require('commander');
 program
     .command('login')
     .action(function() {
+        console.log(" i'm calling login ");
         auth.login();
     });
 
@@ -18,3 +19,5 @@ program
         auth.logout();
     });
 
+program
+    .parse(process.argv);
