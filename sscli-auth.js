@@ -5,7 +5,6 @@ const program = require('commander');
 program
     .command('login')
     .action(function() {
-        console.log(" i'm calling login ");
         auth.login();
     });
 
