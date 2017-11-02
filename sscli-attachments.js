@@ -31,4 +31,13 @@ program
     })
 
 program
+    .command('delete')
+    .option('--sheet-id [id]', 'This is the id of your sheet')
+    .option('--attachment-id [attachmentId]', 'This is the id of the attachment you want to delete')
+    .action(function () {
+        const info = program.args[program.args.length-1];
+        attachments.deleteAttachment(info.sheetId, info.attachmentId);
+    })
+
+program
     .parse(process.argv);
