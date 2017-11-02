@@ -3,8 +3,7 @@ const user = require('./lib/user.js');
 const program = require('commander');
 const process = require('process');
 const inquirer = require('inquirer');
-const async = require('asyncawait/async');
-const await = require('asyncawait/await');
+const chalk = require('chalk');
 
 program
     .option('-f, --force', 'Skip any confirmation prompts.');
@@ -88,8 +87,64 @@ program
 
 program
     .command('list')
+    .option('--json', 'Display the results as raw JSON.')
+    .option('-p, --page [#]', 'Which page of results to display.')
+    .option('-s, --page-size [#]', 'How many records to return.')
+    .option('-a, --include-all', 'Return all records, without pagination.')
     .action(function () {
-        user.listUsers().then(data => console.log(data));
+        const info = program.args[program.args.length-1];
+        let asJson = !!info.json;
+        let pagination = {
+            'pageSize': 10,
+            'page': 1,
+            'includeAll': false
+        };
+        if (info.page) {
+            pagination.page = parseInt(info.page);
+        }
+        if (info.pageSize) {
+            pagination.pageSize = parseInt(info.pageSize);
+        }
+        if (info.includeAll) {
+            pagination.includeAll = true;
+        }
+        user.listUsers(pagination).then(function (results) {
+            if (asJson) {
+                console.log(results);
+            }
+            else {
+                for (let i = 0; i < results.data.length; i++) {
+                    let record = results.data[i];
+                    let identifier = record.email;
+                    if (record.name) {
+                        identifier = record.name + ' (' + record.email + ')';
+                    }
+                    // The API only displays status and other metadata
+                    // if the requestor is an administrator.
+                    if (!record.status) {
+                        console.log(identifier);
+                        continue;
+                    }
+
+                    // For systems administrators, display more data.
+                    console.log(chalk.bold.yellow(identifier));
+                    if (record.admin) {
+                        console.log(chalk.bold('System Administrator'));
+                    }
+                    console.log('ID: %s', record.id);
+                    console.log('Status: %s', record.status);
+                    if (typeof record.sheetCount !== 'undefined') {
+                        console.log('Owns %s sheets', record.sheetCount);
+                    }
+                    console.log('Licensed: %s', (record.licensedSheetCreator ? 'Yes' : 'No'));
+                    console.log('Group admin: %s', (record.groupAdmin ? 'Yes' : 'No'));
+                    console.log('Resource viewer: %s', (record.resourceViewer ? 'Yes' : 'No'));
+                    console.log('');
+                }
+
+                console.log(chalk.bold('Page %s of %s'), results.pageNumber, results.totalPages);
+            }
+        });
     });
 
 program
