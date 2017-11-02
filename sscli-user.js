@@ -9,6 +9,37 @@ program
     .option('-f, --force', 'Skip any confirmation prompts.');
 
 program
+    .command('add')
+    .option('--email [email]', 'The user\'s email address.')
+    .option('--admin', 'Make the user a system administrator.')
+    .option('--licensed', 'Create this as a licensed account, with permission to create and own sheets.')
+    .option('--first-name', 'The user\'s first name.')
+    .option('--last-name', 'The user\'s last name.')
+    .option('--group-admin', 'Give this user permission to create and edit groups')
+    .option('-resource-viewer', 'Let this user access resource views.')
+    .action(function () {
+        const info = program.args[program.args.length-1];
+        if (!info.email) {
+            console.error('You must specify a value for --email.')
+            process.exit(1);
+        }
+        let email = info.email;
+        let isAdmin = !!info.admin;
+        let licensed = !!info.licensed;
+        let firstName = info.firstName || null;
+        let lastName = info.lastName || null;
+        let groupAdmin = !!info.groupAdmin;
+        let resourceViewer = !!info.resourceViewer;
+        user.add(email, isAdmin, licensed, firstName, lastName, groupAdmin, resourceViewer)
+            .then(values => {
+                console.log('Return value:');
+                console.log(values);
+            })
+            .catch(error => console.log(error));
+
+    });
+
+program
     .command('delete')
     .option('--user-id [id]', 'The ID of the user to be deleted. Required.')
     .option('--transfer-sheets', 'Transfer the user\'s sheets to another user.')
