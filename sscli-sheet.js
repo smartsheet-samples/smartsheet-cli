@@ -36,10 +36,9 @@ program
     });
 
 program
-    .command('export [sheet-id]')
+    .command('list')
     .action(function () {
-        console.log('Available information:');
-        console.log(program.args);
+        sheet.listSheets()
     });
 
 program
