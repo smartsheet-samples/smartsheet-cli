@@ -6,6 +6,14 @@ program
     .option('-f, --format [type]', 'The sheet format (either json or csv)');
 
 program
+    .command('get')
+    .option('--sheet-id [id]', 'This is the name of your sheet')
+    .action(function () {
+        const info = program.args[program.args.length-1];
+        sheet.getSheet(info.sheetId);
+    });
+
+program
     .command('create')
     .option('--sheet-name [name]', 'This is the name of your sheet')
     .action(function () {
