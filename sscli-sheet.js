@@ -36,6 +36,12 @@ program
     });
 
 program
+    .command('list')
+    .action(function () {
+        sheet.listSheets()
+    });
+
+program
     .command('import')
     .action(function () {
         console.log('Available information:');
