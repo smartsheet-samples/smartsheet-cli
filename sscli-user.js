@@ -73,15 +73,14 @@ program
                 });
         }
         else {
+            // Fetch some information about the user to be deleted and the
+            // user taking over their sheets/groups.
             let toDelete = user.getInfo(userId);
             let replacement = user.getInfo(transferTo);
             Promise.all([toDelete, replacement])
                 .then(function (values) {
                     [toastUser, replacementUser] = values;
-                    console.log(replacementUser);
-                    // const toastUser = values[0];
-                    // const replacementUser = values[1];
-
+                    // Confirm that this really is the correct user to delete.
                     let message = 'Do you really want to delete user ' + toastUser.email + ' (' + toastUser.id + ')';
                     if (transferTo) {
                         message += ' and transfer ownership of their ';
