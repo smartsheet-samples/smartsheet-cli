@@ -11,7 +11,9 @@ program
 program
     .command('sheet [subcommand]', 'Commands for working with sheets')
     .command('auth [subcommand]', 'Authorization')
-    .command('user [subcommand]', 'User functions');
+    .command('user [subcommand]', 'User functions')
+    .command('folder [subcommand]', 'Folder commands')
+    .command('search [searchterm]', 'Search your Smartsheet account')
 
 program
     .command('auth')
