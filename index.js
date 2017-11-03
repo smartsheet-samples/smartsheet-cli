@@ -13,7 +13,8 @@ program
     .command('auth [subcommand]', 'Authorization')
     .command('user [subcommand]', 'User functions')
     .command('attachments [subcommand]', 'Attachment-centric commands')
-    .command('discussions [subcommand]', 'Discussion-oriented commands');
+    .command('discussions [subcommand]', 'Discussion-oriented commands')
+    .command('comments [subcommand]', 'Commands related to comments');
 
 program
     .command('auth')
