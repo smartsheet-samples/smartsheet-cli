@@ -12,7 +12,7 @@ program
 
 program
     .command('get')
-    .option('--sheet-id [id]', 'This is the name of your sheet')
+    .option('--sheet-id [id]', 'This is the id of your sheet')
     .option('--csv', 'Get the sheet as a CSV file')
     .option('--pdf', 'Get the sheet as a PDF file')
     .option('--excel', 'Get the sheet as an Excel file')
