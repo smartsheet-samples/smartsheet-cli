@@ -8,9 +8,6 @@ function collect(val, memo) {
 }
 
 program
-    .option('-f, --format [type]', 'The sheet format (either json or csv)');
-
-program
     .command('get')
     .option('--sheet-id [id]', 'This is the id of your sheet')
     .option('--csv', 'Get the sheet as a CSV file')
@@ -24,7 +21,7 @@ program
 program
     .command('create')
     .option('--sheet-name [name]', 'This is the name of your sheet')
-    .option('--column [column]', 'The different columns', collect, [])
+    .option('--column [column]', 'A column and type that you want to add.  e.g. Comment,TEXT_NUMBER', collect, [])
     .option('--primary [columnName]', 'Make columnName your primary column')
     .action(function () {
         const info = program.args[program.args.length-1];
