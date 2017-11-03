@@ -13,26 +13,12 @@ program
     .command('row   [subcommand]', 'Commands for working with rows')
     .command('auth  [subcommand]', 'Authorization')
     .command('user [subcommand]', 'User functions')
+    .command('search [searchterm]', 'Search your Smartsheet account')
     .command('attachments [subcommand]', 'Attachment-centric commands')
     .command('discussions [subcommand]', 'Discussion-oriented commands')
-    .command('comments [subcommand]', 'Commands related to comments');
-
-program
-    .command('auth')
-    .option('-f, --force', 'Force reauthentication')
-    .description('this isn\'t ready yet. but when it is, you will be able to authenticate the Smartsheet API (add \'-f\' to force reauthentication)')
-
-program
-    .command('whoami')
-    .description('shows which smartsheet account you\'re connected to');
-
-// program
-//     .command('*')
-//     .action(function (argv) {
-//         console.log('\'sscli %s\' is not a valid command use \'sscli -h\' for help', argv);
-//         process.exit(2);
-//     });
-
+    .command('comments [subcommand]', 'Commands related to comments')
+    .command('whoami', 'shows which smartsheet account is connected');
+    
 program.on('--help', function () {
     console.log('');
     console.log('  Examples:');
