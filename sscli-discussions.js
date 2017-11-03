@@ -4,7 +4,7 @@ var program = require('commander');
 
 program
     .command('list')
-    .option('--sheet-id [id]', 'This is the name of your sheet')
+    .option('--sheet-id [id]', 'This is the id of your sheet')
     .option('--include-flags [include]', 'Comma separated flags you want to include. e.g. comments,attachments')
     .action(function () {
         const info = program.args[program.args.length-1];
