@@ -154,6 +154,11 @@ program
             }
         });
     });
-
+program
+    .command('me')
+    .action(function() {
+        user.me();
+    });
+    
 program
     .parse(process.argv);

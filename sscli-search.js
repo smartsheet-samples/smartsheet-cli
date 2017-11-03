@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const search = require('./lib/search.js');
 var program = require('commander');
-console.log('sscli-search--before program');
 
 program
     .action(function() {
