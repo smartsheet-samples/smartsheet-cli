@@ -10,7 +10,8 @@ program
 
 program
     .command('sheet [subcommand]', 'Commands for working with sheets')
-    .command('auth [subcommand]', 'Authorization')
+    .command('row   [subcommand]', 'Commands for working with rows')
+    .command('auth  [subcommand]', 'Authorization')
     .command('user [subcommand]', 'User functions')
     .command('attachments [subcommand]', 'Attachment-centric commands')
     .command('discussions [subcommand]', 'Discussion-oriented commands')
@@ -37,6 +38,7 @@ program.on('--help', function () {
     console.log('  Examples:');
     console.log('');
     console.log('    $ sscli sheet export <sheet-id> --format <format> --filename <filename>');
+    console.log('    $ sscli row   export <row-ids>  --format <format> --filename <filename>');
     console.log('');
 });
 
