@@ -1,0 +1,28 @@
+[
+  {
+    "toBottom": true,
+    "cells": [
+      {
+        "columnId": 1431620688340868,
+        "value": "MyTask_AAA"
+      },
+      {
+        "columnId": 5935220315711364,
+        "value": true
+      }
+    ]
+  },
+  {
+      "toBottom": true,
+      "cells": [
+        {
+          "columnId": 1431620688340868,
+          "value": "MyTask_BBB"
+        },
+        {
+          "columnId": 5935220315711364,
+          "value": false
+        }
+      ]
+  }
+]
