@@ -5,16 +5,18 @@ const program = require('commander');
 program
     .command('login')
     .action(function() {
-        auth.login();
+        auth.login(() => {
+            // process.exit();
+        });
     });
 
 program
     .command('logout')
     // options arent getting passed corrrectly with the way auth.js is structured
-    .option('-f, --force', 'Force logout')
     .description('Removes your Smartsheet access token.')
     .action(function() {
-        console.log("i'm calling logout")
         auth.logout();
     });
 
+program
+    .parse(process.argv);
