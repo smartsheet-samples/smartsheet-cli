@@ -12,8 +12,10 @@ program
     .command('sheet [subcommand]', 'Commands for working with sheets')
     .command('auth [subcommand]', 'Authorization')
     .command('user [subcommand]', 'User functions')
-    .command('folder [subcommand]', 'Folder commands')
     .command('search [searchterm]', 'Search your Smartsheet account')
+    .command('attachments [subcommand]', 'Attachment-centric commands')
+    .command('discussions [subcommand]', 'Discussion-oriented commands')
+    .command('comments [subcommand]', 'Commands related to comments');
 
 program
     .command('auth')

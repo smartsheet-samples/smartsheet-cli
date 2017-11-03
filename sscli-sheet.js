@@ -12,7 +12,7 @@ program
 
 program
     .command('get')
-    .option('--sheet-id [id]', 'This is the name of your sheet')
+    .option('--sheet-id [id]', 'This is the id of your sheet')
     .option('--csv', 'Get the sheet as a CSV file')
     .option('--pdf', 'Get the sheet as a PDF file')
     .option('--excel', 'Get the sheet as an Excel file')
@@ -37,15 +37,11 @@ program
 
 program
     .command('list')
+    .option('--include-flags [include]', '(Optional) Comma separated flags you want to include. e.g. ownerInfo,sheetVersion,source')
+    .option('--modified-since [modifiedSince]', '(Optional) Response only includes the objects that are modified on or after the date and time specified e.g. 2015-06-05T20:05:43Z')
     .action(function () {
-        sheet.listSheets()
-    });
-
-program
-    .command('import')
-    .action(function () {
-        console.log('Available information:');
-        console.log(program.args);
+        const info = program.args[program.args.length-1];
+        sheet.listSheets(info.includeFlags, info.modifiedSince)
     });
 
 program
