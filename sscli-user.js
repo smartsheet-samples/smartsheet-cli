@@ -156,4 +156,34 @@ program
     });
     
 program
+    .command('update')
+    .option('--user-id [id]', 'The id of the user account to be updated.')
+    .option('--add-role [role]', 'Add a role to the user account. Must be one of "admin", "group-admin", "licensed-sheet-creator", "resource-viewer".')
+    .option('--remove-role [role]', 'Remove a role from the user account. Must be one of "admin", "group-admin", "licensed-sheet-creator", "resource-viewer".')
+    .action(function () {
+        const info = program.args[program.args.length-1];
+        if (!info.userId) {
+            console.error('The --user-id parameter is required.');
+        }
+        if (info.addRole) {
+            user.editRole('add', info.addRole, info.userId)
+                .then(json => {
+                    console.log('Role added:');
+                    console.log('');
+                    user.display(json);
+                    })
+                .catch((error) => {console.error(error)});
+        }
+        if (info.removeRole) {
+            user.editRole('remove', info.removeRole, info.userId)
+                .then(json => {
+                    console.log('Role removed:');
+                    console.log('');
+                    user.display(json);
+                })
+                .catch((error) => {console.error(error)});
+        }
+    });
+
+program
     .parse(process.argv);
