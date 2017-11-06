@@ -25,6 +25,7 @@ Currently, here are the functions that can be accomplished with the Smartsheet-C
     * Create discussion
 * Users
     * Add
+    * Update
     * Delete
     * List
 * Auth
