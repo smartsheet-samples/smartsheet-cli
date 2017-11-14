@@ -5,9 +5,7 @@ const program = require('commander');
 program
     .command('login')
     .action(function() {
-        auth.login(() => {
-            // process.exit();
-        });
+        auth.login();
     });
 
 program
@@ -18,5 +16,17 @@ program
         auth.logout();
     });
 
+    program
+        .command('manual')
+        .option('--token [accesstoken]', 'Your manually generated Smartsheet Access Token')
+        .action(function() {
+            const info = program.args[program.args.length-1];
+            if (!info.token) {
+                console.error('To manually auth you need to provide your Smartsheet Access Token for --token');
+                process.exit(1);
+            }
+            let accessToken = info.token;
+            auth.login(accessToken);
+        });
 program
     .parse(process.argv);

@@ -20,7 +20,7 @@ program
     .action(function () {
         const info = program.args[program.args.length-1];
         if (!info.email) {
-            console.error('You must specify a value for --email.')
+            console.error('You must specify a value for --email.');
             process.exit(1);
         }
         let email = info.email;
