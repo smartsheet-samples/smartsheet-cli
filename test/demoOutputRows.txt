@@ -1,0 +1,49 @@
+{
+  "message": "SUCCESS",
+  "resultCode": 0,
+  "result": [
+    {
+      "id": 8911817191778180,
+      "sheetId": 7843699863381892,
+      "rowNumber": 3,
+      "siblingId": 8118923279263620,
+      "expanded": true,
+      "createdAt": "2017-11-03T19:42:20Z",
+      "modifiedAt": "2017-11-03T19:42:20Z",
+      "cells": [
+        {
+          "columnId": 5875889637484420,
+          "value": "Hashbrowns",
+          "displayValue": "Hashbrowns"
+        },
+        {
+          "columnId": 3624089823799172,
+          "value": "Scott",
+          "displayValue": "Scott"
+        }
+      ]
+    },
+    {
+      "id": 115724169570180,
+      "sheetId": 7843699863381892,
+      "rowNumber": 4,
+      "siblingId": 8911817191778180,
+      "expanded": true,
+      "createdAt": "2017-11-03T19:42:20Z",
+      "modifiedAt": "2017-11-03T19:42:20Z",
+      "cells": [
+        {
+          "columnId": 5875889637484420,
+          "value": "Orange Juice",
+          "displayValue": "Orange Juice"
+        },
+        {
+          "columnId": 3624089823799172,
+          "value": "Katherine",
+          "displayValue": "Katherine"
+        }
+      ]
+    }
+  ],
+  "version": 11
+}

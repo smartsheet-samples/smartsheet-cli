@@ -29,7 +29,7 @@ Currently, here are the functions that can be accomplished with the Smartsheet-C
     * Delete
     * List
 * Auth
-    * Login (OAuth)
+    * Login (oAuth)
     * Logout
 * Attachments
     * List
