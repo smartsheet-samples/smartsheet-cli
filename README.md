@@ -1,5 +1,5 @@
 # Smartsheet-CLI
-This is a tool that allows you to interact with Smartsheet without leaving the command line.
+This is a tool that allows you interact with Smartsheet without leaving the command line.
 
 As this is a **work in progress**, this is not yet available in the npmjs registry. So, to get it installed, clone this project, and then from the root of the project run: 
 
