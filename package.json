@@ -1,6 +1,6 @@
 {
   "name": "smartsheet-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "sscli, a CLI for workthing with Smartsheet",
   "main": "index.js",
   "bin": {
@@ -20,7 +20,7 @@
     "asyncawait": "^1.0.6",
     "camelcase": "^4.1.0",
     "colors": "^1.1.2",
-    "commander": "^2.11.0",
+    "commander": "^2.13.0",
     "fs-extra": "^4.0.2",
     "http": "0.0.0",
     "inquirer": "^3.3.0",
