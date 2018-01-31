@@ -38,7 +38,7 @@ program
     .option('--modified-since [modifiedSince]', '(Optional) Response only includes the objects that are modified on or after the date and time specified e.g. 2015-06-05T20:05:43Z')
     .action(function () {
         const info = program.args[program.args.length-1];
-        sheet.listSheets(info.includeFlags, info.modifiedSince)
+        sheet.listSheets(info.includeFlags, info.modifiedSince);
     });
 
 program

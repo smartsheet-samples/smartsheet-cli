@@ -1,0 +1,5 @@
+sscli sheet create --sheet-name "Breakfast Party" --column Item,TEXT_NUMBER --column Assignment,TEXT_NUMBER --primary Item
+
+sscli row add --sheet-id 5826901869651844 --input-file test/demoInputRows.txt --output-file test/demoOutputRows.txt --stdout
+
+sscli discussions create --sheet-id 5826901869651844 --title "Best Breakfast" --comment "Bacon and toast, anyone?"

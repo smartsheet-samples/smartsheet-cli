@@ -4,6 +4,7 @@ const program = require('commander');
 
 program
     .command('login')
+    .description('Login through Smartsheet OAuth')
     .action(function() {
         auth.login();
     });
