@@ -1,6 +1,6 @@
 {
   "name": "smartsheet-cli",
-  "version": "0.1.2",
+  "version": "0.8.0",
   "description": "sscli, a CLI for workthing with Smartsheet",
   "main": "index.js",
   "bin": {
