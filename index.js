@@ -5,6 +5,8 @@ const program = require('commander');
 const path = require('path');
 const lib = path.join(__dirname, './lib');
 // WARNING: If you use .action it will break all sub commands
+process.title = "sscli";
+
 program
     .version(package.version);
 

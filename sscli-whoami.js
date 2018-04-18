@@ -2,6 +2,7 @@
 const program = require('commander');
 const authenticate = require('./lib/functions/authenticate.js');
 const user = require('./lib/user.js');
+
 program
     .parse(process.argv);
 
