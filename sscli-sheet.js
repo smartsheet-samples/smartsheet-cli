@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const sheet = require('./lib/sheet.js');
-var program = require('commander');
+const program = require('commander');
 
 function collect(val, memo) {
   memo.push(val);

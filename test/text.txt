@@ -1,5 +1,11 @@
-sscli sheet create --sheet-name "Breakfast Party" --column Item,TEXT_NUMBER --column Assignment,TEXT_NUMBER --primary Item
+sscli sheet create --sheet-name "Breakfast Party TC" --column Item,TEXT_NUMBER --column Assignment,TEXT_NUMBER --primary Item
 
-sscli row add --sheet-id 5826901869651844 --input-file test/demoInputRows.txt --output-file test/demoOutputRows.txt --stdout
+sscli row add --sheet-id 3766411442055044 --input-file test/demoInputRows.txt --output-file test/demoOutputRows.txt --stdout
 
-sscli discussions create --sheet-id 5826901869651844 --title "Best Breakfast" --comment "Bacon and toast, anyone?"
+sscli discussions create --sheet-id 3766411442055044 --title "Best Breakfast" --comment "Bacon and toast, anyone? Bacon, of course\!"
+
+
+// doesn't work yet. need to handle symbols in columns first
+sscli sheet create --sheet-name "Twin Cities Burger Ratings" --column Restaurant,TEXT_NUMBER --column Burger Ordered,TEXT_NUMBER --column Description,TEXT_NUMBER --column Ballpark $$,TEXT_NUMBER --column Restaurant,TEXT_NUMBER --column Burger Ordered,TEXT_NUMBER --column Description,TEXT_NUMBER --column Date $$,TEXT_NUMBER --primary Item
+
+
