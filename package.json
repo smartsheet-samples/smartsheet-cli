@@ -1,6 +1,6 @@
 {
   "name": "smartsheet-cli",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "smar, a CLI for working with Smartsheet",
   "main": "index.js",
   "bin": {
