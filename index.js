@@ -5,7 +5,7 @@ const program = require('commander');
 const path = require('path');
 const lib = path.join(__dirname, './lib');
 // WARNING: If you use .action it will break all sub commands
-process.title = "sscli";
+process.title = "smar";
 
 program
     .version(package.version);
@@ -25,12 +25,12 @@ program.on('--help', function () {
     console.log('');
     console.log('  Examples:');
     console.log('');
-    console.log('    $ sscli sheet get --sheet-id <sheet-id> --csv --pdf --excel');
-    console.log('    $ sscli sheet create --sheet-name "Breakfast" --column Food,TEXT_NUMBER --column Drink,TEXT_NUMBER --primary Food');
-    console.log('    $ sscli row   export <row-ids>  --format <format> --filename <filename>');
-    console.log('    $ sscli attachments upload --sheet-id <sheet-id> --file /Users/bacon/Downloads/fryingpan.jpg')
-    console.log('    $ sscli discussions list --sheet-id <sheet-id> --include-flags comments')
-    console.log('    $ sscli comments add --sheet-id <sheet-id> --discussion-id <discussion-id> --comment "Recipe for delicious breakfast"')
+    console.log('    $ smar sheet get --sheet-id <sheet-id> --csv --pdf --excel');
+    console.log('    $ smar sheet create --sheet-name "Breakfast" --column Food,TEXT_NUMBER --column Drink,TEXT_NUMBER --primary Food');
+    console.log('    $ smar row   export <row-ids>  --format <format> --filename <filename>');
+    console.log('    $ smar attachments upload --sheet-id <sheet-id> --file /Users/bacon/Downloads/fryingpan.jpg')
+    console.log('    $ smar discussions list --sheet-id <sheet-id> --include-flags comments')
+    console.log('    $ smar comments add --sheet-id <sheet-id> --discussion-id <discussion-id> --comment "Recipe for delicious breakfast"')
     console.log('');
 });
 
